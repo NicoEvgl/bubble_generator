@@ -1,9 +1,12 @@
+const counterDisplay = document.querySelector("h3");
+let counter = 0;
+
 /** generate one bubble
  * const bubble = span
  * bubble properties = Math.random() * 100
  * const plusMinus = If Maths.random > 5 return 1, else return -1
  * "--left" has to get negative or positive property
- * "click" = cursor crosshair, remove clicked bubble.
+ * "click" = cursor crosshair, remove clicked bubble & add +1 to counter.
  * setTimeout : remove bublle at the end of the animation (8s)
  */
 const bubbleMaker = () => {
@@ -22,6 +25,8 @@ const bubbleMaker = () => {
   bubble.style.setProperty("--left", Math.random() * 100 * plusMinus + "%");
 
   bubble.addEventListener("click", () => {
+    counter++;
+    counterDisplay.textContent = counter;
     bubble.remove();
   });
 
