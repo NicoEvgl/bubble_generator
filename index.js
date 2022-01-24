@@ -3,6 +3,7 @@
  * bubble properties = Math.random() * 100
  * const plusMinus = If Maths.random > 5 return 1, else return -1
  * "--left" has to get negative or positive property
+ * "click" = cursor crosshair, remove clicked bubble.
  * setTimeout : remove bublle at the end of the animation (8s)
  */
 const bubbleMaker = () => {
@@ -20,9 +21,13 @@ const bubbleMaker = () => {
   const plusMinus = Math.random() > 0.5 ? 1 : -1;
   bubble.style.setProperty("--left", Math.random() * 100 * plusMinus + "%");
 
+  bubble.addEventListener("click", () => {
+    bubble.remove();
+  });
+
   setTimeout(() => {
     bubble.remove();
   }, 8000);
 };
 
-setInterval(bubbleMaker, 300);
+setInterval(bubbleMaker, 400);
